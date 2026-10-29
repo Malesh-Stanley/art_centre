@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tagline: "End the Week on a Soulful Note",
       description:
         "Round off the week with reggae rhythms, a relaxed atmosphere and good company.",
-      image: "img/perfect.png",
+      image: "img/sunday.png",
       alt: "Sunday Reggae Nights at Notos Art Centre",
     },
   };
@@ -199,8 +199,26 @@ document.addEventListener("DOMContentLoaded", function () {
      ======================================================= */
 
   const navCollapse = document.querySelector("#mainNavigation");
+  const navToggler = document.querySelector(".navbar-toggler");
 
   if (navCollapse && window.bootstrap) {
+    const updateNavToggleIcon = function () {
+      if (navToggler) {
+        navToggler.classList.toggle(
+          "is-open",
+          navCollapse.classList.contains("show"),
+        );
+        navToggler.setAttribute(
+          "aria-expanded",
+          String(navCollapse.classList.contains("show")),
+        );
+      }
+    };
+
+    navCollapse.addEventListener("shown.bs.collapse", updateNavToggleIcon);
+    navCollapse.addEventListener("hidden.bs.collapse", updateNavToggleIcon);
+    updateNavToggleIcon();
+
     const navLinks = navCollapse.querySelectorAll('a[href^="#"]');
 
     navLinks.forEach(function (link) {
@@ -210,20 +228,20 @@ document.addEventListener("DOMContentLoaded", function () {
             toggle: false,
           }).hide();
         }
-
-        /* Keep the navigation transparent over the hero and solid after scrolling. */
-        const header = document.querySelector("#header");
-        const updateHeader = function () {
-          if (header) {
-            header.classList.toggle("is-scrolled", window.scrollY > 24);
-          }
-        };
-
-        updateHeader();
-        window.addEventListener("scroll", updateHeader, { passive: true });
       });
     });
   }
+
+  /* Keep the navigation transparent over the hero and solid after scrolling. */
+  const header = document.querySelector("#header");
+  const updateHeader = function () {
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    }
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 
   /* =======================================================
      4. SECTION REVEAL EFFECTS

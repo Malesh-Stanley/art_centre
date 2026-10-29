@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    NOTOS ART CENTRE
    Main stylesheet
    ========================================================= */
@@ -6,9 +6,9 @@
 /* ==================== 1. GLOBAL STYLES ==================== */
 
 :root {
-  --notos-bg: #211326;
-  --notos-purple: #351b3b;
-  --notos-purple-light: #49264e;
+  --notos-bg: #111111;
+  --notos-purple: #1b1b1b;
+  --notos-purple-light: #242424;
   --notos-coffee: #6f4e37;
   --notos-coffee-light: #b8895b;
   --notos-white: #ffffff;
@@ -204,6 +204,25 @@ section img {
 
 #header .navbar-toggler:focus {
   box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.2);
+}
+
+#header .navbar-toggler-icon {
+  display: inline-block;
+}
+
+#header .navbar-close-icon {
+  display: none;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+#header .navbar-toggler.is-open .navbar-toggler-icon {
+  display: none;
+}
+
+#header .navbar-toggler.is-open .navbar-close-icon {
+  display: inline-block;
 }
 
 /* ==================== 3. HERO SECTION ==================== */
@@ -498,7 +517,7 @@ section img {
   height: 100%;
   min-height: 330px;
   overflow: hidden;
-  background: #2d1933;
+  background: #1b1b1b;
   border: 1px solid rgba(255, 255, 255, 0.07);
   transition:
     transform 0.35s ease,
@@ -526,7 +545,7 @@ section img {
 #services .service-content {
   position: relative;
   padding: 25px 24px 28px;
-  background: #2d1933;
+  background: #1b1b1b;
 }
 
 #services .service-content h3 {
@@ -553,7 +572,7 @@ section img {
   isolation: isolate;
   min-height: 700px;
   overflow: hidden;
-  background-color: #351b3b;
+  background-color: #1b1b1b;
   background-image:
     linear-gradient(rgba(49, 24, 56, 0.93), rgba(49, 24, 56, 0.96));
   background-position: center;
@@ -635,7 +654,7 @@ section img {
   overflow: visible;
   border: 4px solid transparent;
   border-radius: 50%;
-  background: #351b3b;
+  background: #1b1b1b;
   cursor: pointer;
   transition:
     border-color 0.3s ease,
@@ -822,7 +841,7 @@ section img {
 
 #footer {
   padding: 55px 0 20px;
-  background: #190e1d;
+  background: #101010;
   color: var(--notos-muted);
 }
 
@@ -1306,7 +1325,7 @@ h5 {
 #home {
   min-height: 100vh;
   padding: 0;
-  background: #211326;
+  background: #111111;
 }
 
 #notosHeroCarousel,
@@ -1319,7 +1338,7 @@ h5 {
 
 #notosHeroCarousel .carousel-item {
   overflow: hidden;
-  background: #211326;
+  background: #111111;
 }
 
 #notosHeroCarousel .hero-image {
@@ -1439,7 +1458,7 @@ h5 {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #211326;
+  background: #111111;
   color: #cfc3d2;
 }
 
@@ -1478,15 +1497,15 @@ h5 {
 /* ==================== SERVICES â€” CONSISTENT DARK STYLE ==================== */
 
 #services {
-  background: #19101e;
+  background: #111111;
 }
 
 #services .service-item {
-  background: #2d1933;
+  background: #1b1b1b;
 }
 
 #services .service-content {
-  background: #2d1933;
+  background: #1b1b1b;
 }
 
 /* ==================== EVENTS â€” TIGHTER LAYOUT ==================== */
@@ -2066,7 +2085,7 @@ h5 {
 /* Footer layout */
 #footer.footer {
   padding: 70px 0 24px;
-  background: #190e1d;
+  background: #101010;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -2148,7 +2167,7 @@ h5 {
 }
 
 #footer .social-links a:hover {
-  color: #190e1d;
+  color: #101010;
   background: var(--notos-coffee);
   border-color: var(--notos-coffee);
 }
@@ -2194,7 +2213,7 @@ h5 {
 }
 
 #contact #contact-form {
-  background: rgba(18, 10, 22, 0.82);
+  background: rgba(18, 18, 18, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
 }
@@ -2461,7 +2480,7 @@ h5 {
 @media (max-width: 767.98px) {
   #header,
   #header.is-scrolled {
-    background: #211326;
+    background: #111111;
     border-bottom-color: rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     backdrop-filter: none;
@@ -2469,6 +2488,14 @@ h5 {
   }
 
   #header .navbar-collapse {
-    background: #211326;
+    background: #111111;
+  }
+
+  #footer.footer {
+    background: #101010;
+  }
+
+  #contact #contact-form {
+    background: rgba(18, 18, 18, 0.96);
   }
 }
