@@ -1,0 +1,2433 @@
+/* =========================================================
+   NOTOS ART CENTRE
+   Main stylesheet
+   ========================================================= */
+
+/* ==================== 1. GLOBAL STYLES ==================== */
+
+:root {
+  --notos-bg: #211326;
+  --notos-purple: #351b3b;
+  --notos-purple-light: #49264e;
+  --notos-orange: #f07827;
+  --notos-white: #ffffff;
+  --notos-text: #d0c6d2;
+  --notos-muted: #988a9c;
+  --notos-border: rgba(255, 255, 255, 0.12);
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Playfair Display", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+  --notos-heading-font: var(--heading-font);
+  --notos-body-font: var(--default-font);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--notos-body-font);
+  background: var(--notos-bg);
+  color: var(--notos-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--notos-orange);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--notos-white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--notos-white);
+  font-family: var(--notos-heading-font);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.45rem;
+}
+
+p {
+  margin-bottom: 18px;
+}
+
+section {
+  position: relative;
+  padding: 100px 0;
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+section img {
+  height: auto;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 26px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--notos-orange);
+  border: 1px solid var(--notos-orange);
+  color: var(--notos-white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: transparent;
+  border-color: var(--notos-orange);
+  color: var(--notos-orange);
+}
+
+.btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: var(--notos-white);
+}
+
+.btn-outline-light:hover {
+  background: var(--notos-white);
+  color: var(--notos-bg);
+  border-color: var(--notos-white);
+}
+
+/* ==================== 2. NAVIGATION ==================== */
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(30, 15, 34, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#header .navbar {
+  padding: 14px 0;
+}
+
+#header .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+#header .navbar-brand img {
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+}
+
+#header .navbar-nav {
+  gap: 8px;
+}
+
+#header .nav-link {
+  position: relative;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#header .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  background: var(--notos-orange);
+  transition: width 0.3s ease;
+}
+
+#header .nav-link:hover,
+#header .nav-link.active {
+  color: var(--notos-orange);
+}
+
+#header .nav-link:hover::after,
+#header .nav-link.active::after {
+  width: calc(100% - 28px);
+}
+
+#header .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px 10px;
+}
+
+#header .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(240, 120, 39, 0.2);
+}
+
+/* ==================== 3. HERO SECTION ==================== */
+
+/* =========================================
+   NOTOS ART CENTRE — HERO
+   Centered text, dark cinematic appearance
+   ========================================= */
+
+#home,
+#notosHeroCarousel {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+#notosHeroCarousel .carousel-inner,
+#notosHeroCarousel .carousel-item {
+  min-height: 100vh;
+}
+
+#notosHeroCarousel .carousel-item {
+  position: relative;
+  background: #000;
+}
+
+#notosHeroCarousel .carousel-item > img {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.72);
+}
+
+/* Dark overlay similar to the main Notos website */
+#notosHeroCarousel .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.48) 45%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+/* Center the entire caption horizontally and vertically */
+#notosHeroCarousel .hero-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px 80px;
+  text-align: center;
+}
+
+/* Override previous left alignment */
+#notosHeroCarousel .hero-caption {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+#notosHeroCarousel .hero-eyebrow {
+  margin-bottom: 18px;
+  color: #e8b66b;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+#notosHeroCarousel .hero-caption h1,
+#notosHeroCarousel .hero-caption h2 {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  color: #fff;
+
+  /* Reuse the font already loaded by the main Notos website */
+  font-family: inherit;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: center;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+#notosHeroCarousel .hero-description {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: inherit;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Center the buttons under each slide's description */
+#notosHeroCarousel .hero-caption .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+#notosHeroCarousel .carousel-indicators {
+  z-index: 3;
+  margin-bottom: 32px;
+  gap: 7px;
+}
+
+#notosHeroCarousel .carousel-indicators [data-bs-target] {
+  width: 9px;
+  height: 9px;
+  margin: 0 4px;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+#notosHeroCarousel .carousel-indicators .active {
+  background-color: #e8b66b;
+  transform: scale(1.2);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  #home,
+  #notosHeroCarousel,
+  #notosHeroCarousel .carousel-inner,
+  #notosHeroCarousel .carousel-item {
+    min-height: 85vh;
+  }
+
+  #notosHeroCarousel .carousel-item > img {
+    height: 85vh;
+    min-height: 600px;
+  }
+
+  #notosHeroCarousel .hero-container {
+    padding: 100px 22px 85px;
+  }
+
+  #notosHeroCarousel .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  #notosHeroCarousel .hero-caption h1,
+  #notosHeroCarousel .hero-caption h2 {
+    font-size: clamp(34px, 8vw, 48px);
+    line-height: 1.15;
+  }
+
+  #notosHeroCarousel .hero-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  #notosHeroCarousel .hero-caption h1,
+  #notosHeroCarousel .hero-caption h2 {
+    font-size: 34px;
+  }
+
+  #notosHeroCarousel .hero-caption .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #notosHeroCarousel .hero-caption .hero-buttons .btn {
+    width: min(100%, 240px);
+  }
+}
+
+/* ==================== 4. SECTION LABELS ==================== */
+
+#about .col-lg-6 > p:first-child,
+#services .col-lg-8 > p:first-child,
+#contact .col-lg-6 > p:first-child {
+  color: var(--notos-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ==================== 5. ABOUT SECTION ==================== */
+
+#about {
+  background: #f6f3f7;
+  color: #66596b;
+  overflow: hidden;
+}
+
+#about h2,
+#about h3 {
+  color: #26152c;
+}
+
+#about .row {
+  --bs-gutter-x: 4rem;
+  --bs-gutter-y: 3rem;
+}
+
+#about .col-lg-6:first-child {
+  position: relative;
+}
+
+#about .col-lg-6:first-child::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 65%;
+  height: 65%;
+  border: 3px solid var(--notos-orange);
+  z-index: -0;
+}
+
+#about .col-lg-6:first-child img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 400px;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+#about .col-lg-6:last-child {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#about .col-lg-6:last-child > p:not(:first-child) {
+  color: #746779;
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+#about .btn {
+  margin-top: 12px;
+}
+
+/* ==================== 6. SERVICES SECTION ==================== */
+
+#services {
+  background: var(--notos-bg);
+  color: var(--notos-text);
+  overflow: hidden;
+}
+
+#services .container > .row:first-child {
+  margin-bottom: 40px;
+}
+
+#services h2 {
+  margin-bottom: 16px;
+}
+
+#services .container > .row:first-child p:last-child {
+  max-width: 600px;
+  color: var(--notos-muted);
+}
+
+#services .row.g-4 {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+}
+
+#services .service-item {
+  position: relative;
+  height: 100%;
+  min-height: 330px;
+  overflow: hidden;
+  background: #2d1933;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+#services .service-item:hover {
+  transform: translateY(-7px);
+  border-color: rgba(240, 120, 39, 0.65);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+}
+
+#services .service-item > img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+#services .service-item:hover > img {
+  transform: scale(1.05);
+}
+
+#services .service-content {
+  position: relative;
+  padding: 25px 24px 28px;
+  background: #2d1933;
+}
+
+#services .service-content h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+#services .service-item:hover .service-content h3 {
+  color: var(--notos-orange);
+}
+
+#services .service-content p {
+  margin-bottom: 0;
+  color: var(--notos-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+/* ==================== 7. UPCOMING EVENTS ==================== */
+
+#events {
+  position: relative;
+  isolation: isolate;
+  min-height: 700px;
+  overflow: hidden;
+  background-color: #351b3b;
+  background-image:
+    linear-gradient(rgba(49, 24, 56, 0.93), rgba(49, 24, 56, 0.96));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#events > .container > .row:first-child {
+  margin-bottom: 38px;
+}
+
+#events h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+}
+
+#events > .container > .row:first-child p {
+  color: var(--notos-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* Weekday selector */
+
+#event-date-navigation {
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+#event-date-navigation .nav-link {
+  padding: 10px 18px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--notos-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+#event-date-navigation .nav-link:hover {
+  color: var(--notos-white);
+}
+
+#event-date-navigation .nav-link.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--notos-white);
+}
+
+/* Event timeline */
+
+#events .event-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  padding: 20px 0;
+}
+
+#events .event-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.13);
+  transform: translateX(-50%);
+}
+
+#events .event-timeline-item {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+  padding: 0;
+  overflow: visible;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  background: #351b3b;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#events .event-timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -75px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #6b5571;
+  border-radius: 50%;
+  background: #6b5571;
+  transform: translateY(-50%);
+}
+
+#events .event-timeline-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#events .event-timeline-item:hover {
+  transform: scale(1.05);
+}
+
+#events .event-timeline-item.active {
+  border-color: var(--notos-orange);
+}
+
+#events .event-timeline-item.active::after {
+  background: var(--notos-orange);
+  border-color: var(--notos-orange);
+}
+
+/* Featured event details */
+
+#events .featured-event {
+  padding: 35px 25px;
+  text-align: center;
+}
+
+#events .featured-event .event-date {
+  margin-bottom: 15px;
+  color: var(--notos-orange);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+#events .featured-event h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+#events .featured-event h4 {
+  margin-bottom: 20px;
+  color: #e4d9e7;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#events .featured-event > p:not(.event-date):not(.event-time) {
+  color: #b8a9bd;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+#events .featured-event .event-time {
+  margin-top: 20px;
+  color: #b8a9bd;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Main event image */
+
+#events .featured-event-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* Keep the secondary event data available for JavaScript */
+
+#events .weekly-events-data {
+  display: none;
+}
+
+/* ==================== 8. CONTACT SECTION ==================== */
+
+#contact {
+  background: #f6f3f7;
+  color: #746779;
+}
+
+#contact h2,
+#contact h3 {
+  color: #26152c;
+}
+
+#contact .row {
+  --bs-gutter-x: 4rem;
+  --bs-gutter-y: 2.5rem;
+}
+
+#contact .col-lg-6:first-child > p:not(:first-child) {
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+#contact .contact-details {
+  margin-top: 35px;
+}
+
+#contact .contact-details h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+#contact .contact-details p {
+  margin-bottom: 12px;
+}
+
+#contact .contact-details a {
+  color: #7d4b87;
+  overflow-wrap: anywhere;
+}
+
+#contact .contact-details a:hover {
+  color: var(--notos-orange);
+}
+
+/* Contact form */
+
+#contact #contact-form {
+  padding: 35px;
+  background: var(--notos-white);
+  box-shadow: 0 12px 40px rgba(35, 17, 41, 0.07);
+}
+
+#contact #contact-form .form-label {
+  margin-bottom: 8px;
+  color: #392441;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+#contact #contact-form .form-control {
+  min-height: 50px;
+  padding: 12px 15px;
+  border: 1px solid #e2dbe5;
+  border-radius: 2px;
+  background: #fff;
+  color: #26152c;
+  font-size: 0.92rem;
+}
+
+#contact #contact-form textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+#contact #contact-form .form-control::placeholder {
+  color: #a69baa;
+}
+
+#contact #contact-form .form-control:focus {
+  border-color: var(--notos-orange);
+  box-shadow: 0 0 0 3px rgba(240, 120, 39, 0.12);
+}
+
+#contact #contact-form button {
+  width: 100%;
+}
+
+/* ==================== 9. FOOTER ==================== */
+
+#footer {
+  padding: 55px 0 20px;
+  background: #190e1d;
+  color: var(--notos-muted);
+}
+
+#footer .row {
+  --bs-gutter-y: 2rem;
+}
+
+#footer img {
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+#footer .col-md-6:first-child p {
+  max-width: 440px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+#footer .nav {
+  gap: 4px;
+}
+
+#footer .nav-link {
+  padding: 8px 10px;
+  color: #b8a9bd;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+#footer .nav-link:hover {
+  color: var(--notos-orange);
+}
+
+#footer hr {
+  margin: 35px 0 20px;
+  border-color: rgba(255, 255, 255, 0.12);
+  opacity: 1;
+}
+
+#footer .text-center p {
+  margin-bottom: 0;
+  font-size: 0.82rem;
+}
+
+/* ==================== 10. TABLET RESPONSIVENESS ==================== */
+
+@media (max-width: 991.98px) {
+  section {
+    padding: 80px 0;
+  }
+
+  #header {
+    background: rgba(25, 14, 29, 0.96);
+  }
+
+  #header .navbar-collapse {
+    padding: 15px 0 10px;
+  }
+
+  #header .navbar-nav {
+    align-items: stretch !important;
+    gap: 0;
+  }
+
+  #header .nav-link {
+    padding: 12px 5px;
+  }
+
+  #header .nav-link::after {
+    left: 5px;
+    bottom: 5px;
+  }
+
+  #header .nav-link:hover::after,
+  #header .nav-link.active::after {
+    width: 45px;
+  }
+
+  #home .hero-content {
+    min-height: 85vh;
+  }
+
+  #about .row,
+  #contact .row {
+    --bs-gutter-x: 2rem;
+  }
+
+  #about .col-lg-6:first-child img {
+    min-height: 340px;
+    max-height: 450px;
+  }
+
+  #events .event-timeline {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 15px 0;
+    margin-bottom: 25px;
+    overflow-x: auto;
+  }
+
+  #events .event-timeline::before {
+    top: 50%;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  #events .event-timeline-item {
+    width: 76px;
+    height: 76px;
+    flex-basis: 76px;
+  }
+
+  #events .event-timeline-item::after {
+    display: none;
+  }
+
+  #events .featured-event {
+    padding: 30px 10px;
+  }
+
+  #events .featured-event-image {
+    height: 360px;
+  }
+
+  #footer .nav {
+    justify-content: flex-start !important;
+  }
+}
+
+/* ==================== 11. MOBILE RESPONSIVENESS ==================== */
+
+@media (max-width: 575.98px) {
+  section {
+    padding: 65px 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  #header .navbar {
+    padding: 10px 0;
+  }
+
+  #header .navbar-brand img {
+    max-width: 145px;
+    max-height: 48px;
+  }
+
+  #home .hero-content {
+    min-height: 100svh;
+    padding: 135px 0 70px;
+  }
+
+  #home .hero-content::before {
+    background: rgba(25, 12, 30, 0.72);
+  }
+
+  #home h1 {
+    font-size: clamp(2.5rem, 11vw, 3.7rem);
+    letter-spacing: -1px;
+  }
+
+  #home .hero-content .col-lg-8 > p:nth-of-type(2) {
+    font-size: 0.95rem;
+  }
+
+  #home .hero-content .btn {
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  #about .row {
+    --bs-gutter-y: 2.5rem;
+  }
+
+  #about .col-lg-6:first-child::before {
+    top: -10px;
+    left: -10px;
+  }
+
+  #about .col-lg-6:first-child img {
+    min-height: 270px;
+    max-height: 360px;
+  }
+
+  #services .service-item {
+    min-height: auto;
+  }
+
+  #services .service-item > img {
+    height: 220px;
+  }
+
+  #services .service-content {
+    padding: 22px 20px 25px;
+  }
+
+  #events > .container > .row:first-child {
+    margin-bottom: 25px;
+  }
+
+  #event-date-navigation {
+    flex-wrap: nowrap;
+    justify-content: flex-start !important;
+    margin-right: -12px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+  }
+
+  #event-date-navigation .nav-item {
+    flex: 0 0 auto;
+  }
+
+  #event-date-navigation .nav-link {
+    padding: 10px 13px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+
+  #events .event-timeline {
+    gap: 15px;
+  }
+
+  #events .event-timeline-item {
+    width: 65px;
+    height: 65px;
+    flex-basis: 65px;
+  }
+
+  #events .featured-event {
+    padding: 20px 0 30px;
+  }
+
+  #events .featured-event-image {
+    height: 270px;
+  }
+
+  #contact #contact-form {
+    padding: 24px 20px;
+  }
+
+  #footer {
+    padding-top: 40px;
+  }
+
+  #footer .nav {
+    gap: 0;
+  }
+
+  #footer .nav-link {
+    padding: 8px 9px;
+  }
+}
+
+/* ==================== 12. ACCESSIBILITY ==================== */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--notos-orange);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* =========================================================
+     FINAL LAYOUT RULES
+     Keep the page readable and consistent at every breakpoint.
+     ========================================================= */
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--notos-body-font);
+  }
+
+  nav,
+  .nav-link,
+  .navbar-brand,
+  .event-day-btn {
+    font-family: var(--nav-font);
+  }
+
+  #header {
+    position: fixed;
+    background: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  #header.is-scrolled {
+    background: rgba(25, 14, 29, 0.96);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  #notosHeroCarousel .hero-caption h1 {
+    font-family: var(--notos-heading-font);
+    font-size: clamp(2.4rem, 5vw, 4.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  #notosHeroCarousel .hero-description {
+    font-family: var(--notos-body-font);
+  }
+
+  #events {
+    background-image: linear-gradient(rgba(49, 24, 56, 0.93), rgba(49, 24, 56, 0.96));
+  }
+
+  .event-date-navigation {
+    display: flex;
+  }
+
+  .event-day-btn,
+  .event-timeline-item {
+    font: inherit;
+  }
+
+  @media (max-width: 991.98px) {
+    #header .navbar-collapse {
+      margin-top: 8px;
+      padding: 12px 16px;
+      background: rgba(25, 14, 29, 0.98);
+    }
+
+    #header:not(.is-scrolled) .navbar-collapse {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #header .navbar-nav {
+      align-items: stretch !important;
+    }
+
+    #header .nav-link {
+      padding: 11px 5px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    section {
+      padding: 72px 0;
+    }
+
+    #notosHeroCarousel .hero-container {
+      min-height: 100svh;
+      padding: 120px 20px 90px;
+    }
+
+    #notosHeroCarousel .hero-caption h1 {
+      font-size: clamp(2.25rem, 10vw, 3.25rem);
+    }
+
+    #notosHeroCarousel .hero-caption .hero-buttons {
+      width: 100%;
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    #notosHeroCarousel .hero-caption .hero-buttons .btn {
+      width: 100%;
+    }
+
+    #events .event-date-navigation {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      margin-right: -12px;
+      padding: 0 12px 8px 0;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    #events .event-day-btn {
+      flex: 0 0 auto;
+    }
+
+    #featured-event {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 16px;
+    }
+
+    #featured-event .event-timeline {
+      order: 1;
+      flex-direction: row;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    #featured-event .event-timeline-item {
+      flex: 0 0 60px;
+      width: 60px;
+      height: 56px;
+    }
+
+    #featured-event .featured-event-content {
+      order: 2;
+    }
+
+    #featured-event .featured-event-visual {
+      order: 3;
+      grid-column: auto;
+      min-height: 260px;
+    }
+
+    #featured-event .featured-event-visual .featured-event-image {
+      min-height: 260px;
+    }
+
+    #contact #contact-form {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    #header .navbar-brand img {
+      max-width: 140px;
+    }
+
+    #notosHeroCarousel .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 1.8px;
+    }
+
+    #notosHeroCarousel .hero-caption h1 {
+      font-size: 2.2rem;
+    }
+
+    .event-day-btn {
+      min-width: 64px;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   NOTOS ART CENTRE — DESIGN REFINEMENTS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--heading-font);
+}
+
+/* ==================== HERO CAROUSEL ==================== */
+
+#home {
+  min-height: 100vh;
+  padding: 0;
+  background: #211326;
+}
+
+#notosHeroCarousel,
+#notosHeroCarousel .carousel-inner,
+#notosHeroCarousel .carousel-item {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#notosHeroCarousel .carousel-item {
+  overflow: hidden;
+  background: #211326;
+}
+
+#notosHeroCarousel .hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 7s ease;
+}
+
+#notosHeroCarousel .carousel-item.active .hero-image {
+  transform: scale(1.04);
+}
+
+#notosHeroCarousel .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 12, 30, 0.9) 0%,
+      rgba(35, 16, 40, 0.7) 48%,
+      rgba(25, 12, 30, 0.3) 100%
+    ),
+    linear-gradient(0deg, rgba(25, 12, 30, 0.38), transparent 55%);
+}
+
+#notosHeroCarousel .hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 125px;
+  padding-bottom: 110px;
+}
+
+#notosHeroCarousel .hero-caption {
+  width: 100%;
+  max-width: 850px;
+  color: #fff;
+  text-align: left;
+}
+
+#notosHeroCarousel .hero-eyebrow {
+  margin-bottom: 20px;
+  color: #f07827;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#notosHeroCarousel .hero-caption h1 {
+  max-width: 800px;
+  margin: 0 0 24px;
+  color: #fff;
+  font-size: clamp(38px, 5.2vw, 68px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+#notosHeroCarousel .hero-description {
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+#notosHeroCarousel .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#notosHeroCarousel .hero-buttons .btn {
+  margin: 0;
+}
+
+/* Carousel dots */
+
+#notosHeroCarousel .carousel-indicators {
+  z-index: 5;
+  bottom: 28px;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+#notosHeroCarousel .carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#notosHeroCarousel .carousel-indicators .active {
+  background-color: #f07827;
+  transform: scale(1.2);
+}
+
+/* ==================== ABOUT — DARK BRAND STYLE ==================== */
+
+#about {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #211326;
+  color: #cfc3d2;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(33, 19, 38, 0.96), rgba(33, 19, 38, 0.88));
+  opacity: 1;
+}
+
+#about h2,
+#about h3 {
+  color: #fff;
+}
+
+#about .col-lg-6:first-child::before {
+  top: -15px;
+  left: -15px;
+  border-color: #f07827;
+}
+
+#about .col-lg-6:first-child img {
+  min-height: 420px;
+  max-height: 540px;
+  object-fit: cover;
+  filter: brightness(0.88);
+}
+
+#about .col-lg-6:last-child > p:not(:first-child) {
+  color: #cfc3d2;
+}
+
+/* ==================== SERVICES — CONSISTENT DARK STYLE ==================== */
+
+#services {
+  background: #19101e;
+}
+
+#services .service-item {
+  background: #2d1933;
+}
+
+#services .service-content {
+  background: #2d1933;
+}
+
+/* ==================== EVENTS — TIGHTER LAYOUT ==================== */
+
+#events {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+/* Keep the weekday arrangement close to the featured programme. */
+
+#event-date-navigation {
+  margin-bottom: 12px;
+}
+
+#events .event-timeline {
+  gap: 22px;
+  padding: 8px 0;
+}
+
+#events .featured-event {
+  padding: 18px 18px;
+}
+
+#events .featured-event h3 {
+  margin-bottom: 8px;
+}
+
+#events .featured-event h4 {
+  margin-bottom: 14px;
+}
+
+#events .featured-event > p:not(.event-date):not(.event-time) {
+  margin-bottom: 12px;
+}
+
+#events .featured-event .event-time {
+  margin-top: 12px;
+}
+
+#events .featured-event-image {
+  height: 350px;
+  object-fit: cover;
+}
+
+/* ==================== MOBILE ADJUSTMENTS ==================== */
+
+@media (max-width: 767.98px) {
+  #notosHeroCarousel,
+  #notosHeroCarousel .carousel-inner,
+  #notosHeroCarousel .carousel-item {
+    min-height: 90vh;
+  }
+
+  #notosHeroCarousel .hero-image {
+    min-height: 90vh;
+  }
+
+  #notosHeroCarousel .hero-overlay {
+    background: rgba(25, 12, 30, 0.68);
+  }
+
+  #notosHeroCarousel .hero-container {
+    min-height: 90vh;
+    padding-top: 130px;
+    padding-bottom: 100px;
+  }
+
+  #notosHeroCarousel .hero-caption h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    letter-spacing: -0.7px;
+  }
+
+  #notosHeroCarousel .hero-description {
+    font-size: 14px;
+  }
+
+  #notosHeroCarousel .hero-buttons {
+    align-items: stretch;
+    flex-direction: column;
+    max-width: 280px;
+  }
+
+  #notosHeroCarousel .hero-buttons .btn {
+    width: 100%;
+  }
+
+  #notosHeroCarousel .carousel-indicators {
+    bottom: 22px;
+  }
+
+  #about .col-lg-6:first-child img {
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  #events {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  #events .featured-event {
+    padding: 12px 0 22px;
+  }
+
+  #events .featured-event-image {
+    height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #notosHeroCarousel .hero-image {
+    transition: none;
+  }
+}
+
+/* Smooth transition when the selected weekly event changes */
+#featured-event {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+#featured-event.event-changing {
+  animation: eventReveal 0.35s ease;
+}
+
+@keyframes eventReveal {
+  from {
+    opacity: 0.55;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional scroll-reveal effect */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #featured-event,
+  .reveal,
+  #featured-event.event-changing {
+    animation: none;
+    transition: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================
+   NOTOS ART CENTRE — WEEKLY EVENTS
+   Black cinematic theme
+   ========================================== */
+
+.events-section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  color: #fff;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.97));
+}
+
+.events-section .section-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #e8b66b;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.events-heading {
+  margin-bottom: 18px;
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+}
+
+.events-intro {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Weekday selector */
+.event-date-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 38px auto 24px;
+}
+
+.event-day-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  padding: 13px 12px;
+  color: #ddd;
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 3px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.event-day-btn span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.event-day-btn small {
+  margin-top: 5px;
+  color: #999;
+  font-size: 11px;
+}
+
+.event-day-btn:hover,
+.event-day-btn.active {
+  color: #fff;
+  background: #1b1b1b;
+  border-color: #e8b66b;
+}
+
+.event-day-btn.active small {
+  color: #e8b66b;
+}
+
+/* Main featured event layout */
+#featured-event {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: 28px;
+  margin-top: 0;
+  padding: 28px;
+  background: #0b0b0b;
+  border: 1px solid #252525;
+}
+
+/* Vertical event thumbnail rail */
+.event-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-timeline-item {
+  position: relative;
+  width: 76px;
+  height: 68px;
+  padding: 0;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid #333;
+  opacity: 0.55;
+  cursor: pointer;
+  transition:
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.event-timeline-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-timeline-item:hover,
+.event-timeline-item.active {
+  opacity: 1;
+  border-color: #e8b66b;
+  transform: scale(1.03);
+}
+
+/* Event details */
+.featured-event-content {
+  align-self: center;
+  padding: 20px 0;
+}
+
+.featured-event-content .event-date {
+  margin-bottom: 14px;
+  color: #e8b66b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.featured-event-content h3 {
+  margin-bottom: 12px;
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.featured-event-content h4 {
+  margin-bottom: 18px;
+  color: #e8b66b;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.featured-event-content #featured-event-description {
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.featured-event-content .event-time {
+  margin-bottom: 22px;
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.event-contact-btn {
+  padding: 12px 22px;
+  color: #111;
+  background: #e8b66b;
+  border: 1px solid #e8b66b;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.event-contact-btn:hover {
+  color: #fff;
+  background: transparent;
+  border-color: #e8b66b;
+}
+
+/* Featured photograph */
+.featured-event-visual {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  background: #111;
+}
+
+.featured-event-visual .featured-event-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.featured-event-visual:hover .featured-event-image {
+  transform: scale(1.04);
+}
+
+.event-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+.event-image-label {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Event change animation */
+#featured-event.event-changing {
+  animation: eventReveal 0.35s ease;
+}
+
+@keyframes eventReveal {
+  from {
+    opacity: 0.6;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The event data is now handled by JavaScript */
+.weekly-events-data {
+  display: none !important;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .events-section {
+    padding: 75px 0;
+  }
+
+  #featured-event {
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 22px;
+    padding: 22px;
+  }
+
+  .event-timeline-item {
+    width: 65px;
+    height: 60px;
+  }
+
+  .featured-event-visual {
+    grid-column: 2;
+    min-height: 300px;
+  }
+
+  .featured-event-visual .featured-event-image {
+    min-height: 300px;
+    max-height: 420px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .events-section {
+    padding: 65px 0;
+  }
+
+  .events-intro {
+    font-size: 14px;
+  }
+
+  .event-date-navigation {
+    gap: 6px;
+    margin-top: 28px;
+    margin-bottom: 18px;
+  }
+
+  .event-day-btn {
+    min-width: 68px;
+    padding: 10px 7px;
+  }
+
+  #featured-event {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  /* On small screens, thumbnails become a horizontal rail */
+  .event-timeline {
+    order: 1;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 3px 2px 8px;
+  }
+
+  .event-timeline-item {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 56px;
+  }
+
+  .featured-event-content {
+    order: 2;
+    padding: 5px 0;
+  }
+
+  .featured-event-visual {
+    order: 3;
+    grid-column: auto;
+    min-height: 260px;
+  }
+
+  .featured-event-visual .featured-event-image {
+    min-height: 260px;
+    max-height: 340px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #featured-event.event-changing {
+    animation: none;
+  }
+
+  .event-timeline-item,
+  .featured-event-visual .featured-event-image,
+  .event-day-btn {
+    transition: none;
+  }
+}
+
+/* Weekly program: keep the selected event in one balanced two-column panel. */
+#featured-event {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#featured-event .featured-event-content {
+  display: flex;
+  min-height: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(32px, 5vw, 72px);
+  text-align: left;
+}
+
+#featured-event .featured-event-visual {
+  min-height: 400px;
+}
+
+#featured-event .featured-event-visual .featured-event-image {
+  min-height: 400px;
+}
+
+@media (max-width: 767.98px) {
+  #featured-event {
+    grid-template-columns: 1fr;
+  }
+
+  #featured-event .featured-event-content {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
+  #featured-event .featured-event-visual,
+  #featured-event .featured-event-visual .featured-event-image {
+    min-height: 280px;
+  }
+}
+
+/* Footer layout */
+#footer.footer {
+  padding: 70px 0 24px;
+  background: #190e1d;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+#footer .footer-top {
+  padding-bottom: 30px;
+}
+
+#footer .footer-about .logo {
+  color: #fff;
+  font-family: var(--heading-font);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 700;
+}
+
+#footer .footer-contact p,
+#footer .footer-links p,
+#footer .footer-newsletter p {
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+#footer .footer-contact strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+#footer .footer-links h4,
+#footer .footer-newsletter h4 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#footer .footer-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#footer .footer-links li {
+  margin-bottom: 10px;
+}
+
+#footer .footer-links a {
+  color: rgba(255, 255, 255, 0.68);
+  font-family: var(--nav-font);
+  font-size: 0.9rem;
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+#footer .footer-links a:hover {
+  padding-left: 4px;
+  color: var(--notos-orange);
+}
+
+#footer .social-links {
+  gap: 10px;
+}
+
+#footer .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+#footer .social-links a:hover {
+  color: #190e1d;
+  background: var(--notos-orange);
+  border-color: var(--notos-orange);
+}
+
+#footer .copyright {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#footer .copyright p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.85rem;
+}
+
+#footer .copyright .sitename {
+  color: #fff;
+}
+
+/* Contact section: use the brand mark as a dark, readable backdrop. */
+#contact {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)),
+    url("img/Notos Art Center Logo.png") center / cover no-repeat;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+#contact h2,
+#contact h3,
+#contact .contact-details h3 {
+  color: #fff;
+}
+
+#contact .col-lg-6:first-child > p:not(:first-child),
+#contact .contact-details p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+#contact .contact-details a {
+  color: #e8b66b;
+}
+
+#contact #contact-form {
+  background: rgba(18, 10, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+#contact #contact-form .form-label {
+  color: #fff;
+}
+
+#contact #contact-form .form-control {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+@media (max-width: 767.98px) {
+  #footer.footer {
+    padding-top: 52px;
+  }
+
+  #footer .footer-links h4,
+  #footer .footer-newsletter h4 {
+    margin-bottom: 14px;
+  }
+}
+
+/* Final section and navigation refinements */
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(25, 14, 29, 0.08);
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#header.is-scrolled {
+  background: rgba(25, 14, 29, 0.96);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Hero typography and placement follow the centered lounge reference. */
+#notosHeroCarousel .hero-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.42) 48%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+#notosHeroCarousel .hero-container {
+  align-items: flex-start;
+  padding-top: clamp(155px, 25vh, 235px);
+  padding-bottom: 90px;
+}
+
+#notosHeroCarousel .hero-caption {
+  max-width: 930px;
+  text-align: center;
+}
+
+#notosHeroCarousel .hero-eyebrow {
+  margin-bottom: 16px;
+  color: #e8b66b;
+  font-family: var(--nav-font);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+#notosHeroCarousel .hero-caption h1,
+#notosHeroCarousel .hero-caption h2 {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  color: #fff;
+  font-family: var(--heading-font);
+  font-size: clamp(2.8rem, 5.2vw, 4.35rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+#notosHeroCarousel .hero-description {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  color: rgba(255, 255, 255, 0.94);
+  font-family: var(--default-font);
+  font-size: clamp(1rem, 1.55vw, 1.2rem);
+  line-height: 1.65;
+  text-align: center;
+}
+
+#notosHeroCarousel .hero-caption .hero-buttons {
+  justify-content: center;
+  gap: 12px;
+}
+
+#notosHeroCarousel .hero-caption .hero-buttons .btn {
+  min-width: 176px;
+  border-radius: 999px;
+  font-family: var(--nav-font);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767.98px) {
+  #notosHeroCarousel .hero-container {
+    align-items: center;
+    padding-top: 105px;
+    padding-bottom: 80px;
+  }
+
+  #notosHeroCarousel .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
+
+  #notosHeroCarousel .hero-caption h1,
+  #notosHeroCarousel .hero-caption h2 {
+    font-size: clamp(2.35rem, 10.5vw, 3.35rem);
+  }
+
+  #notosHeroCarousel .hero-description {
+    font-size: 0.98rem;
+  }
+}
+
+#about {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.86)),
+    url("img/About us.png") center / cover no-repeat;
+}
+
+#about::before {
+  display: none;
+}
+
+#events,
+.events-section {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.88)),
+    url("img/backg.png") center / cover no-repeat;
+}
+
+#events .event-date-navigation,
+.event-date-navigation {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+  gap: 12px;
+  margin: 38px 0 30px;
+}
+
+#events .event-day-btn,
+.event-day-btn {
+  width: 100%;
+  min-width: 0;
+  min-height: 72px;
+  padding: 14px 10px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(12, 12, 12, 0.72);
+  border: 1px solid rgba(232, 182, 107, 0.25);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+#events .event-day-btn:hover,
+#events .event-day-btn.active,
+.event-day-btn:hover,
+.event-day-btn.active {
+  color: #fff;
+  background: rgba(232, 182, 107, 0.2);
+  border-color: #e8b66b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+
+#events .event-day-btn small,
+.event-day-btn small {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+#events .event-day-btn.active small,
+.event-day-btn.active small {
+  color: #e8b66b;
+}
+
+#featured-event {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+#featured-event .featured-event-content,
+#featured-event .featured-event-visual {
+  min-height: 420px;
+}
+
+#featured-event .featured-event-visual,
+#featured-event .featured-event-visual .featured-event-image {
+  height: 100%;
+}
+
+@media (max-width: 767.98px) {
+  #events .event-date-navigation,
+  .event-date-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #events .event-day-btn,
+  .event-day-btn {
+    min-height: 64px;
+  }
+
+  #featured-event {
+    grid-template-columns: 1fr;
+  }
+
+  #featured-event .featured-event-content {
+    min-height: auto;
+  }
+
+  #featured-event .featured-event-visual,
+  #featured-event .featured-event-visual .featured-event-image {
+    min-height: 280px;
+  }
+}
