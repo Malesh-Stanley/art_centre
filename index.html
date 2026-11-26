@@ -561,8 +561,8 @@
 
               <h3>Email</h3>
               <p>
-                <a href="mailto:notoslounge@gmail.com">
-                  notoslounge@gmail.com
+                <a href="mailto:notosartcenter@gmail.com">
+                  notosartcenter@gmail.com
                 </a>
               </p>
             </div>
@@ -570,7 +570,18 @@
 
           <!-- Contact form structure -->
           <div class="col-lg-6">
-            <form id="contact-form" action="#" method="post">
+            <form id="contact-form" action="contact.php" method="post">
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="contact-website">Leave this field empty</label>
+                <input
+                  type="text"
+                  id="contact-website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
               <div class="mb-3">
                 <label for="contact-name" class="form-label"> Your Name </label>
 
